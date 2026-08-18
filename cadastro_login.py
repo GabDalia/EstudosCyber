@@ -55,6 +55,8 @@ elif opcao == 1:
     with open('clientes.txt' , 'r') as arquivo:
         encontrou = False
         for linha in arquivo:
+            if not linha.strip():
+                continue
             dados = linha.strip().split(';')
             cpf = dados[1]
             if cpf == digitaCpf:
