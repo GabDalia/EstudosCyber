@@ -14,7 +14,7 @@ class Cliente:
     nome: str
     cpf: str #para nao perder o 0 do inicio de alguns cpfs
     email: str
-    senha: bytes
+    senha: str
 
 print('\n......M E N U......\n\n[1] Login\n[2] Criar conta')
 while True:
@@ -45,7 +45,7 @@ if opcao == 2:
 
     cliente = Cliente(nome,cpf,email,senha_hash)
     with open('clientes.txt', 'a') as arquivo:
-        arquivo.write(f'{cliente.nome};{cliente.cpf};{cliente.email};{cliente.senha}\n')
+        arquivo.write(f'{cliente.nome};{cliente.cpf};{cliente.email};{cliente.senha.decode()}\n')
 
 elif opcao == 1:
     digitaCpf = input('Digite o seu CPF: ')
